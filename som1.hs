@@ -3,10 +3,6 @@
 expdecay:: Float -> Int -> Int -> Float
 expdecay s n i = s * (exp (- (intToFloat i) / ((intToFloat n) / log s)))
 
---Integer to float conversion
-intToFloat :: Int -> Float
-intToFloat n = fromInteger (toInteger n)
-
 --Euclidean Distance
 	
 sumd:: [Float] -> [Float] -> Float
@@ -39,6 +35,9 @@ distoedge:: Int -> Node -> Int
 distoedge n p = minimum ([n - (posX p)] ++ [n - (posY p)] ++ [posX p] ++ [posY p])
 
 --Distance between Nodes
+
+intToFloat :: Int -> Float
+intToFloat n = fromInteger.toInteger n
 
 nodesdist:: Node -> Node -> Float
 nodesdist p q = eucldist ([intToFloat(posX p)] ++ [intToFloat(posY p)]) ([intToFloat(posX q)] ++ [intToFloat(posY q)])
